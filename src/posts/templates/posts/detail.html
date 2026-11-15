@@ -46,8 +46,8 @@
                 <div class="modal-footer">
                     <form id="delete-form">
                         {% csrf_token %}
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
-                            <button type="submit" class="btn btn-success">delete</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
+                        <button type="submit" class="btn btn-success">delete</button>
                     </form>
                 </div>
             </div>
@@ -85,4 +85,9 @@
         <div class="spinner-border" role="status"></div>
     </div>
     <div class="mt-1" id="post-box"></div>
+    <hr>
+    <div class="d-flex align-items-center">
+        <img src="{{obj.author.avatar.url}}" class="rounded-circle" height="50px" width="50px" alt="{{obj.author.user.username}}">
+        <span class="ms-2">{{obj.author.user.username}}</span>
+    </div>
     {% endblock content %}
