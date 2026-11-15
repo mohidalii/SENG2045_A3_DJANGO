@@ -7,7 +7,7 @@ from django.http import JsonResponse
 def my_profile_view(request):
     obj = Profile.objects.get(user=request.user)
     form = ProfileForm(request.POST or None, request.FILES or None, instance=obj)
-    if request.is_ajax():
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         if form.is_valid():
             instance = form.save()
             return JsonResponse({
